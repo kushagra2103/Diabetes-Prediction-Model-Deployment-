@@ -1,0 +1,26 @@
+
+
+service: diabetesPrediction
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sagemaker:InvokeEndpoint
+      Resource: "arn:aws:sagemaker:us-east-1:753154596552:endpoint/diabetes-pred"  
+  environment:
+      SAGEMAKER_ENDPOINT_NAME: "diabetes-pred"  
+
+
+
+functions:
+  hello:
+    handler: handler.detectDiabetes
+    events:
+      - http:
+          path: sagemaker
+          method: post
+          cors: true
