@@ -44,3 +44,7 @@ Now seeing the pair plot of the variables, there is no trend observable or regio
 
 Missing Values: In this dataset, there are some values are 0 in some columns which dosen't makes any sense, as they are basically the NULL values. So they are replaced by the mean values of that column respectively .
 
+
+### Training and Accuracy 
+
+
