@@ -91,8 +91,27 @@ To create the endpoint, go to endpoints tab and click on create endpoint. Create
 
 #### 7. Integration With AWS sagemaker using serverless.yml and handler.py files    
 
+After the endpoint creation, install serverless framework from the internet. Download node.js from the link https://nodejs.org/en/download/. It will install all the requirements. After installing, do the following steps in order to connect serverless with the aws 
 
-After the endpoint creation, install serverless framework from the internet. Download node.js from the link https://nodejs.org/en/download/. It will install all the requirements. After installing 
+a) Adding configurations. Create a new user under IAM (Identity and Access Management) section. Give administrative access initailly, after creating the user, you will get two keys; Access Key Id and Secret Access Key. Then type the following command in Windows powershell (make  a new folder and then going into that directory)
+
+serverless config --provider aws --key Access Key Id --secret Secret Access Key 
+
+b) Then type the below command to get the template files (handler.py and serverless.yml) which we will edit
+
+serverless create --template aws-python --name diabetes_Pred
+
+c) Description and coding of two files 
+
+serverless.yml file
+here you define what kind of service (diabetesPrediction), provider (define python version (python 3.8), region (us-east-1), endpoint resource (link cicled in the belwo pic), action means what you want your resource to do (we want to invoke the endpoint)) and function (what function will it be execute that is defined in handler.py file)\
+
+![4](https://user-images.githubusercontent.com/36281158/92412562-f5727300-f169-11ea-85c3-130f79d62f69.PNG)
+
+Handler.py file 
+
+
+
 
 
 
