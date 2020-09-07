@@ -89,7 +89,10 @@ To create the endpoint, go to endpoints tab and click on create endpoint. Create
 
 ![endpoint_final](https://user-images.githubusercontent.com/36281158/92411083-13d57000-f164-11ea-9a3e-6650f4837c72.PNG)
 
+#### 7. Integration With AWS sagemaker using serverless.yml and handler.py files    
 
+
+After the endpoint creation, install serverless framework from the internet. Download node.js from the link https://nodejs.org/en/download/. It will install all the requirements. After installing 
 
 
 
