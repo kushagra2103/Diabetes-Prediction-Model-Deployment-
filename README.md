@@ -76,14 +76,20 @@ Missing Values: In this dataset, there are some values are 0 in some columns whi
 
 5. Notebook Coding :
 
-Here we import required libraries, then define the bucket name, defining the paths where our training and testing data will be. I have already uploaded the diabetes data in our S3 bucket. Then we import the data from our S3, then split it into training and validation data. We then saves these train and test data and writing back to s3 model in training and testing paths respectively. Then we import a docker image/ container for our xgboost algorithm from aws itself. We define an estimator which contains our container, total number of ianstances used for training (=1), type of the isntance (=ml.m4.xlarge), our output(model)path and our job name. Set the hyperparameters (max_depth=7, num_round = 500, objective: binary logistic).Once the training is done, in AWS Sagemaker console go to training jobs section and you will see the list of all training jobs that has been done till now. You can also the see the hyperparameter tuning jobs , here i have seperately run in my local machine and got the hyparameters values and directly fed to to our model to save the AWS cost.  
+Here we import required libraries, then define the bucket name, defining the paths where our training and testing data will be. I have already uploaded the diabetes data in our S3 bucket. Then we import the data from our S3, then split it into training and validation data. We then saves these train and test data and writing back to s3 model in training and testing paths respectively. Then we import a docker image/ container for our xgboost algorithm from aws itself. We define an estimator which contains our container, total number of ianstances used for training (=1), type of the isntance (=ml.m4.xlarge), our output(model)path and our job name. Set the hyperparameters (max_depth=7, num_round = 1000, objective: binary logistic).Once the training is done, in AWS Sagemaker console go to training jobs section and you will see the list of all training jobs that has been done till now. You can also the see the hyperparameter tuning jobs , here i have seperately run in my local machine and got the hyparameters values and directly fed to to our model to save the AWS cost.  
 
 ![training_job](https://user-images.githubusercontent.com/36281158/92396633-f6dc7500-f142-11ea-82b2-af2aa7e6230a.PNG)
 
 
 6. Endpoint creation
 
-Endpoint is basically where our clients will 
+Endpoint is basically where our clients will hitting up the URL to get the result whether the person has diabetes or not by inputting the numerical values of the independent variables. 
+
+To create the endpoint, go to endpoints tab and click on create endpoint. Create with new configurationa, add name, click on "add model" below which we created above and create. 
+
+![endpoint_final](https://user-images.githubusercontent.com/36281158/92411083-13d57000-f164-11ea-9a3e-6650f4837c72.PNG)
+
+
 
 
 
