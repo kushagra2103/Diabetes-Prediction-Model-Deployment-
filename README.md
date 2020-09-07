@@ -47,4 +47,43 @@ Missing Values: In this dataset, there are some values are 0 in some columns whi
 
 ### Training and Accuracy 
 
+#### XGBoost Algorithm 
+
+
+
+
+
+
+
+
+
+
+
+## Model Deployment in AWS Sagemaker 
+
+
+### Steps :
+
+1. First make an account on AWS.
+
+2. Then to your AWS sagemaker and on the left, under the "Notebook" click on Notebook instances.
+
+3. Create a new notebook instance using "ml.t2.medium" EC2 instance in the conda-python3 environment.
+
+![3](https://user-images.githubusercontent.com/36281158/92393611-c6dea300-f13d-11ea-9b22-930f19f1ecbf.PNG)
+
+4. Open the new notebook and do the coding part.
+
+5. Notebook Coding :
+
+Here we import required libraries, then define the bucket name, defining the paths where our training and testing data will be. I have already uploaded the diabetes data in our S3 bucket. Then we import the data from our S3, then split it into training and validation data. We then saves these train and test data and writing back to s3 model in training and testing paths respectively. Then we import a docker image/ container for our xgboost algorithm from aws itself. We define an estimator which contains our container, total number of ianstances used for training (=1), type of the isntance (=ml.m4.xlarge), our output(model)path and our job name. Set the hyperparameters (max_depth=7, num_round = 500, objective: binary logistic).Once the training is done, in AWS Sagemaker console go to training jobs section and you will see the list of all training jobs that has been done till now. You can also the see the hyperparameter tuning jobs , here i have seperately run in my local machine and got the hyparameters values and directly fed to to our model to save the AWS cost.  
+
+![training_job](https://user-images.githubusercontent.com/36281158/92396633-f6dc7500-f142-11ea-82b2-af2aa7e6230a.PNG)
+
+
+6. Endpoint creation
+
+Endpoint is basically where our clients will 
+
+
 
